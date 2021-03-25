@@ -72,8 +72,11 @@
                         </td>
                         <td>
                          <form action="/role-delete/{{ $row->id }}" method="post">
+
+                         
                          {{ csrf_field() }}
                          {{ methode_field('DELETE')}}
+
                               <button type="submit" class="btn btn-danger">DELETE</button>
                               </form>
                         </td>
