@@ -35,3 +35,31 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Auth::routes();
+
+
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+ Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['middleware' => ['auth','admin']] , function (){
+
+     Route::get('/dashboard', function () {
+          return view('admin.dashboard');
+});
+
+Route::get('/role-register', 'Admin\DashboardController@registered');
+
+Route::get('/role-edit/{id}', 'Admin\DashboardController@registeredit');
+
+Route::put('/role-register-update/{id}', 'Admin\DashboardController@registerupdate');
+
+Route::delete('/role-delete/{id}','Admin\DashboardController@registerdelete');
+
+});

@@ -3,7 +3,7 @@
 
 @section('title')
 
-   Dashboard
+   Registered Roles
 
 
 
@@ -16,7 +16,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
+                <h4 class="card-title"> Registered Roles</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -26,27 +26,34 @@
                         Name
                       </th>
                       <th>
-                        Country
+                        Email
                       </th>
                       <th>
-                        City
+                        EDITE
                       </th>
                       <th>
-                        Salary
+                        DELETE
                       </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          Dakota Rice
+                         name
                         </td>
                         <td>
-                          Niger
+                          email@gmail.com
                         </td>
                         <td>
-                          Oud-Turnhout
+                            <a href="/role-edit/{{ $row->id }}" class="btn btn-success">EDIT</a>
                         </td>
-                
+                        <td>
+                         <form action="/role-delete/{{ $row->id }}" method="post">
+                         {{ csrf_field() }}
+                         {{ methode_field('DELETE')}}
+                              <button type="submit" class="btn btn-danger">DELETE</button>
+                              </form>
+                        </td>
+                      
                  
                       </tr>
                     </tbody>
